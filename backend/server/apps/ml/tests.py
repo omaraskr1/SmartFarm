@@ -2,6 +2,7 @@ from django.test import TestCase
 import inspect
 from apps.ml.registry import MLRegistry
 from apps.ml.check_classifier.random_forest import RandomForestClassifier
+from apps.ml.check_classifier.extra_trees import ExtraTreesClassifier
 
 class MLTests(TestCase):
     def test_rf_algorithm(self):
@@ -14,7 +15,7 @@ class MLTests(TestCase):
             "Conductivity": 568.304671,
             "Organic_carbon": 13.626624,
             "Trihalomethanes": 75.952337,
-            "Turbidity": 4.732954,
+            "Turbidity": 4.732954
            
         }
         my_alg = RandomForestClassifier()
@@ -40,3 +41,22 @@ class MLTests(TestCase):
                         algorithm_description, algorithm_code)
             # there should be one endpoint available
             self.assertEqual(len(registry.endpoints), 1)
+    
+    def test_et_algorithm(self):
+        input_data = {
+            "ph": 5.735724,
+            "Hardness": 158.318741,
+            "Solids": 25363.016594,
+            "Chloramines": 7.728601,
+            "Sulfate": 377.543291,
+            "Conductivity": 568.304671,
+            "Organic_carbon": 13.626624,
+            "Trihalomethanes": 75.952337,
+            "Turbidity": 4.732954
+           
+        }
+        my_alg = ExtraTreesClassifier()
+        response = my_alg.compute_prediction(input_data)
+        self.assertEqual('OK', response['status'])
+        self.assertTrue('label' in response)
+        self.assertEqual('0', response['label'])
