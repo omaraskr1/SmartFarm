@@ -27,7 +27,7 @@ SECRET_KEY = 'xvj^n1w+!p2y^06)$v^epe#g92fcf$=sl^3jiv_z*8cv43)c0t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','sampledomain.com']
+ALLOWED_HOSTS = ['127.0.0.1','smartfarmm.herokuapp.com/']
 
 
 
