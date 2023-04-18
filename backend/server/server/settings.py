@@ -27,7 +27,7 @@ SECRET_KEY = 'xvj^n1w+!p2y^06)$v^epe#g92fcf$=sl^3jiv_z*8cv43)c0t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','smartfarmm.herokuapp.com/']
+ALLOWED_HOSTS = ['127.0.0.1','smartfarmm.herokuapp.com']
 
 
 
@@ -126,6 +126,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
-STATICFILES_DIRS = (os.path.join(BASE_DIR,'static' ), )
-django_heroku.settings(locals())
+# STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+# STATICFILES_DIRS = (os.path.join(BASE_DIR,'static' ), )
+# django_heroku.settings(locals())

@@ -1,1 +1,1 @@
-web gunicorn SmartFarm.wsgi:apllication --log-file -
+web: gunicorn SmartFarm.wsgi --log-file -
