@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'apps.endpoints',
     'apps.ml',
-    "django_nextjs",
+    
 ]
 
 MIDDLEWARE = [
