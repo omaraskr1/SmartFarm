@@ -10,7 +10,7 @@ from apps.endpoints.views import PredictView
 
 from apps.endpoints.views import ABTestViewSet
 from apps.endpoints.views import StopABTestView
-
+#   from .views import index
 router = DefaultRouter(trailing_slash=False)
 router.register(r"endpoints", EndpointViewSet, basename="endpoints")
 router.register(r"mlalgorithms", MLAlgorithmViewSet, basename="mlalgorithms")
@@ -19,6 +19,7 @@ router.register(r"mlrequests", MLRequestViewSet, basename="mlrequests")
 router.register(r"abtests", ABTestViewSet, basename="abtests")
 
 urlpatterns = [
+    # re_path("", index, name="index"),
     re_path(r"^api/v1/", include(router.urls)),
     re_path(
         r"^api/v1/(?P<endpoint_name>.+)/predict$", PredictView.as_view(), name="predict"

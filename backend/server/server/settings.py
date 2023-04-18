@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'apps.endpoints',
-    'apps.ml'
+    'apps.ml',
+    "django_nextjs",
 ]
 
 MIDDLEWARE = [

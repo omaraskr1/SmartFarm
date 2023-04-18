@@ -30,6 +30,10 @@ from apps.endpoints.serializers import ABTestSerializer
 from django.db.models import F
 import datetime
 
+# from django_nextjs.render import render_nextjs_page_sync
+# def index(request):
+#     return render_nextjs_page_sync(request)
+
 class EndpointViewSet(
     mixins.RetrieveModelMixin, mixins.ListModelMixin, viewsets.GenericViewSet
 ):
@@ -149,7 +153,9 @@ class ABTestViewSet(
 
         except Exception as e:
             raise APIException(str(e))
-        
+
+
+
 class StopABTestView(views.APIView):
     def post(self, request, ab_test_id, format=None):
 
