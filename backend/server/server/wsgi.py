@@ -11,6 +11,8 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
+from apps.ml.check_classifier.VGG16 import VGG16
+
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'server.settings')
 
 application = get_wsgi_application()
@@ -44,6 +46,17 @@ try:
                             owner="AIOT_TEAM",
                             algorithm_description="Extra Trees with simple pre- and post-processing",
                             algorithm_code=inspect.getsource(RandomForestClassifier))
+    
+    vgg16 = VGG16()
+    # add to ML registry
+    registry.add_algorithm(endpoint_name="PDVGG16",
+                            algorithm_object=vgg16,
+                            algorithm_name="vgg16",
+                            algorithm_status="production",
+                            algorithm_version="0.0.1",
+                            owner="AIOT_TEAM",
+                            algorithm_description="vgg16 with simple pre- and post-processing",
+                            algorithm_code=inspect.getsource(VGG16))
 except Exception as e:
     print("Exception while loading the algorithms to the registry,", str(e))
 except Exception as e:
